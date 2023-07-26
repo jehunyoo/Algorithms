@@ -13,17 +13,17 @@ def dijkstra(graph: list[list[int]], n: int, start: int) -> list[int]:
     distance = [INF for _ in range(n)]
     distance[start] = 0
 
-    queue: list[tuple[int, int]] = [] # (distance, node)
-    heapq.heappush(queue, (0, start))
+    heap: list[tuple[int, int]] = [] # (distance, node)
+    heapq.heappush(heap, (0, start))
 
-    while queue:
-        dist, node = heapq.heappop(queue)
+    while heap:
+        dist, node = heapq.heappop(heap)
         if distance[node] < dist:
             continue
         for neighbor, d in enumerate(graph[node]):
             if d != INF and (shorter := dist + d) < distance[neighbor]:
                 distance[neighbor] = shorter
-                heapq.heappush(queue, (shorter, neighbor))
+                heapq.heappush(heap, (shorter, neighbor))
     
     return distance
 
