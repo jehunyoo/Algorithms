@@ -1,10 +1,10 @@
 # path compression
-def find(root, x):
+def find(root: list[int], x: int) -> int:
     if root[x] != x:
         root[x] = find(root, root[x])
     return root[x]
 
-def union(root, x, y):
+def union(root: list[int], x: int, y: int) -> None:
     x = find(root, x)
     y = find(root, y)
     
@@ -15,4 +15,4 @@ def union(root, x, y):
 
 
 N = 100
-rank = [0 for _ in range(N)]
+root = [x for x in range(N)]
