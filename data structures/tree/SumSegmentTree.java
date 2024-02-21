@@ -5,7 +5,7 @@ public class SumSegmentTree {
 
     public SumSegmentTree(int[] array) {
         int height = (int) Math.ceil(Math.log(array.length) / Math.log(2));
-        int spaceSize = (int) Math.pow(2, height + 1) - 1;
+        int spaceSize = (int) Math.pow(2, height + 1);
 
         this.tree = new int[spaceSize];
         this.leafCount = array.length;
